@@ -1,0 +1,35 @@
+
+.row {
+    /* display: flex;
+    justify-content: space-evenly; */
+
+}
+.cell {
+   width: 100px;
+   height: 100px;
+   display: inline-block;
+   margin: 0px;
+}
+
+.red {
+    background-color: red;
+}
+
+.black {
+background-color: black;
+}
+
+.red-checker {
+    background-color: darkred;
+}
+
+.black-checker {
+    background-color: blue;
+}
+
+.checker {
+    margin: 24px;
+    border-radius: 50%;
+    height: 50px;
+    width: 50px;
+}
