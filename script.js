@@ -9,7 +9,7 @@ let lifePoints = 10;
 
 // const secret word bank(array) 
 const secretWordBank = ['RED','ORANGE','YELLOW','GREEN','BLUE','PURPLE'];
-const hints = ["a","o","y","g","b",'p'];
+const hints = ["___ Hot Chili Peppers","Chanel____","___ Submarine","Americam Idiot","Eiffel 65","That one Prince song about the rain"];
 // let secret word(array)
 let secretWord = [];
 let incompleteWord = [];
@@ -17,7 +17,7 @@ let getHint;
 //  (placeholds the correct numbers of letters and current correct guesses)
 let userInput = [];
 let lengthOfArray = secretWordBank.length;
-let pulledItem = Math.floor(Math.random() * (lengthOfArray + 1));
+let pulledItem;
 
 
 // (banks of letters used)
@@ -45,6 +45,7 @@ function initGame() {
     resetButton();
     gameStatus();
     
+    
 
 }
 
@@ -58,7 +59,7 @@ function resetVariables() {
 // random pull from secret word bank/ apply to secretWord
 function randomSecretWord() {
     // let lengthOfArray = secretWordBank.length;
-    let pulledItem = Math.floor(Math.random() * (lengthOfArray + 1));
+    pulledItem = Math.floor(Math.random() * (lengthOfArray + 1));
     let str = secretWordBank[pulledItem];
     secretWord = str.split('');
 }
@@ -180,7 +181,6 @@ function userChecker(letter) {
 
 function resetButton() {
     document.querySelector(".reset-button-container").innerText = '';
-
     let resetButton = document.createElement("div")
     resetButton.className = ".reset-button";
     resetButton.innerText = "Reset Game";
