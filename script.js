@@ -8,7 +8,7 @@ let lifePoints = 10;
 // variables
 
 // const secret word bank(array) 
-const secretWordBank = ['RED',"ORANGE","YELLOW","GREEN","BLUE","PURPLE"];
+const secretWordBank = ['RED'];
 // let secret word(array)
 let secretWord = [];
 let incompleteWord = [];
@@ -122,7 +122,7 @@ function loserChecker() {
 }
 // check win condition function
 function winnerChecker() {
-    if (secretWord === incompleteWord) {
+    if (secretWord==incompleteWord) {
         return true;
     } else {
         return false;
@@ -136,15 +136,20 @@ function userChecker(letter) {
         secretWord.forEach(function (space, idx) {
             if (space === letter) {
                 incompleteWord[idx] = letter;
+                winnerChecker();
             }
         })
     } else {
         lifePoints -= 1;
         userInput.push(letter);
+        
     }
     renderGameBoard();
     renderlifePoints();
     renderUserInput();
+    gameStatus();
+    winnerChecker();
+    
 }
 // create start/reset button  
 
@@ -164,15 +169,15 @@ function resetButton() {
 function gameStatus() {
    
     let gameStatus = document.querySelector(".game-status");
-    if(winnerChecker()===true) {
+    if(incompleteWord == secretWord) {
       gameStatus.innerHTML = "You win!"  
-    } else if(loserChecker()===true) {
+    } else if(lifePoints <= 0) {
       gameStatus.innerHTML = "Game Over, try again!"  
     }else {
-       gameStatus.innerHTML = ''; 
+       gameStatus.innerHTML = 'hello'; 
     };
 
 }
 function startGame(){
-    
+
 } 
