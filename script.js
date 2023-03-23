@@ -8,22 +8,24 @@ let lifePoints = 10;
 // variables
 
 // const secret word bank(array) 
-const secretWordBank = ['RED'];
-// const secretHints = ["whole lotta ____","frank ocean's","SUBMARINE"];
+const secretWordBank = ['RED','ORANGE','YELLOW','GREEN','BLUE','PURPLE'];
+const hints = ["a","o","y","g","b",'p'];
 // let secret word(array)
 let secretWord = [];
 let incompleteWord = [];
-// let getHint;
+let getHint;
 //  (placeholds the correct numbers of letters and current correct guesses)
 let userInput = [];
-let pulledItem;
+let lengthOfArray = secretWordBank.length;
+let pulledItem = Math.floor(Math.random() * (lengthOfArray + 1));
 
 
 // (banks of letters used)
 
 // cached elements
-// let getHint = document.getElementById("hint");
-// let showClue = document.getElementById("clue");
+let gimmeHint = document.getElementById("hint");
+let theClue = document.getElementById("clue");
+let AyoStart = document.getElementById("start");
 
 
 // event listeners
@@ -55,18 +57,18 @@ function resetVariables() {
 }
 // random pull from secret word bank/ apply to secretWord
 function randomSecretWord() {
-    let lengthOfArray = secretWordBank.length;
+    // let lengthOfArray = secretWordBank.length;
     let pulledItem = Math.floor(Math.random() * (lengthOfArray + 1));
     let str = secretWordBank[pulledItem];
     secretWord = str.split('');
 }
 // pull up hint 
 
-//     hint.onclick= function() {
-//         const hints = ["whole lotta ____","frank ocean's","SUBMARINE"];
-//     let hintIndex = pulledItem.indexOf(secretWord);
-//     showClue.innerHTML = "Clue - " + hints [hintIndex];
-// }
+
+    gimmeHint.onclick= function() {
+        console.log(pulledItem);
+    theClue.innerHTML = "Clue - " + hints[pulledItem];
+}
 
 // creating an array(incompleteWord) based on the secret word array
 function initIncomplete() {
@@ -138,7 +140,9 @@ function loserChecker() {
 }
 // check win condition function
 function winnerChecker() {
-    if (secretWord==incompleteWord) {
+    incompleteWord.join(',');
+    secretWord.join(',');
+    if (secretWord.join()===incompleteWord.join('')) {
         return true;
     } else {
         return false;
@@ -169,6 +173,11 @@ function userChecker(letter) {
 }
 // create start/reset button  
 
+ AyoStart.onclick= function() {
+    initGame();
+
+}
+
 function resetButton() {
     document.querySelector(".reset-button-container").innerText = '';
 
@@ -185,7 +194,8 @@ function resetButton() {
 function gameStatus() {
    
     let gameStatus = document.querySelector(".game-status");
-    if(incompleteWord == secretWord) {
+    console.log(secretWord, incompleteWord)
+    if(incompleteWord.join('') === secretWord.join('')) {
       gameStatus.innerHTML = "You win!"  
     } else if(lifePoints <= 0) {
       gameStatus.innerHTML = "Game Over, try again!"  
