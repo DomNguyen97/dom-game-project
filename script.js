@@ -9,16 +9,21 @@ let lifePoints = 10;
 
 // const secret word bank(array) 
 const secretWordBank = ['RED'];
+// const secretHints = ["whole lotta ____","frank ocean's","SUBMARINE"];
 // let secret word(array)
 let secretWord = [];
 let incompleteWord = [];
+// let getHint;
 //  (placeholds the correct numbers of letters and current correct guesses)
 let userInput = [];
+let pulledItem;
+
 
 // (banks of letters used)
 
 // cached elements
-// reset button
+// let getHint = document.getElementById("hint");
+// let showClue = document.getElementById("clue");
 
 
 // event listeners
@@ -36,6 +41,9 @@ function initGame() {
     renderlifePoints();
     renderUserInput();
     resetButton();
+    gameStatus();
+    
+
 }
 
 function resetVariables() {
@@ -52,6 +60,14 @@ function randomSecretWord() {
     let str = secretWordBank[pulledItem];
     secretWord = str.split('');
 }
+// pull up hint 
+
+//     hint.onclick= function() {
+//         const hints = ["whole lotta ____","frank ocean's","SUBMARINE"];
+//     let hintIndex = pulledItem.indexOf(secretWord);
+//     showClue.innerHTML = "Clue - " + hints [hintIndex];
+// }
+
 // creating an array(incompleteWord) based on the secret word array
 function initIncomplete() {
     let lengthOfArray = secretWord.length;
@@ -77,7 +93,7 @@ function renderGameBoard() {
 
 //render tallies
 function renderlifePoints() {
-    document.querySelector(".lifePoints").innerText = lifePoints;
+    document.querySelector(".lifePoints").innerText = "Number of tries Left:" + lifePoints;
 }
 
 // render user input
@@ -174,7 +190,7 @@ function gameStatus() {
     } else if(lifePoints <= 0) {
       gameStatus.innerHTML = "Game Over, try again!"  
     }else {
-       gameStatus.innerHTML = 'hello'; 
+       gameStatus.innerHTML = "Guess The letters to save Space man!"; 
     };
 
 }
