@@ -1,19 +1,20 @@
 // constants
 
 // letters 
-// const letters = ['A','B','C','D','E','F','G','H','I','J','K','L','M','N','O','P','Q','R','S','T','U','V','W','X','Y','Z']
-//  numbers of incorrect guesses
-let tally = 0;
+const letters = ['A', 'B', 'C', 'D', 'E', 'F', 'G', 'H', 'I', 'J', 'K', 'L', 'M', 'N', 'O', 'P', 'Q', 'R', 'S', 'T', 'U', 'V', 'W', 'X', 'Y', 'Z']
+//  numbers of incorrect guesses 
+let lifePoints = 10;
 
 // variables
 
 // const secret word bank(array) 
-const secretWordBank = ['APPLE', 'PEAR', 'ORANGES', 'GRAPEFRUIT', 'LIME', 'PINEAPPLE'];
+const secretWordBank = ['RED',"ORANGE","YELLOW","GREEN","BLUE","PURPLE"];
 // let secret word(array)
 let secretWord = [];
 let incompleteWord = [];
 //  (placeholds the correct numbers of letters and current correct guesses)
-let userInput = ['T','E','S','T'];
+let userInput = [];
+
 // (banks of letters used)
 
 // cached elements
@@ -32,15 +33,16 @@ function initGame() {
     randomSecretWord();
     initIncomplete();
     renderGameBoard();
-    renderTally();
+    renderlifePoints();
     renderUserInput();
+    resetButton();
 }
 
 function resetVariables() {
     userInput = [];
     secretWord = [];
     incompleteWord = [];
-    tally= 0;
+    lifePoints = 10;
 
 }
 // random pull from secret word bank/ apply to secretWord
@@ -57,6 +59,7 @@ function initIncomplete() {
     while (i < lengthOfArray) {
         incompleteWord.push('_')
         i++;
+        
     }
 }
 
@@ -73,27 +76,103 @@ function renderGameBoard() {
 }
 
 //render tallies
-function renderTally() {
-    document.querySelector(".tally").innerText = tally;
+function renderlifePoints() {
+    document.querySelector(".lifePoints").innerText = lifePoints;
 }
 
 // render user input
 function renderUserInput() {
     document.querySelector('.previous-input').innerHTML = '';
-    userInput.forEach(function(moon){ 
-    let dog = document.createElement('div');
-    dog.className = 'input-input';
-    dog.innerText = moon;
-    document.querySelector('.previous-input').appendChild(dog);
-    });  
+    userInput.forEach(function (input) {
+        let char = document.createElement('div');
+        char.className = 'input-input';
+        char.innerText = input;
+        document.querySelector('.previous-input').appendChild(char);
+    });
+    
 }
 
 
+
 // create keyboard(using foreach and onclick functions)
-// check win condition function
+letters.forEach(function (letter, idx) {
+    let keyOnBoard = document.createElement('div');
+    keyOnBoard.className = "key-button"
+    keyOnBoard.innerText = letter;
+    keyOnBoard.id = idx;
+    keyOnBoard.onclick = function () {
+        userChecker(letter)
+    }
+    document.querySelector(".key-board").appendChild(keyOnBoard);
+});
+
+// access all of const letters
+// grab the button from the html
+// loop through the whole alhpabet
+// create the atribute and class 
+// append the letters to the button
+
 // check lose condition function
+function loserChecker() {
+    if (lifePoints = 0) {
+        return true;
+    } else {
+        return false;
+    }
+}
+// check win condition function
+function winnerChecker() {
+    if (secretWord === incompleteWord) {
+        return true;
+    } else {
+        return false;
+    }
+}
+
+
 // check user input against secret word and update gameboard function
-// create start/reset button 
+function userChecker(letter) {
+    if (secretWord.includes(letter)) {
+        secretWord.forEach(function (space, idx) {
+            if (space === letter) {
+                incompleteWord[idx] = letter;
+            }
+        })
+    } else {
+        lifePoints -= 1;
+        userInput.push(letter);
+    }
+    renderGameBoard();
+    renderlifePoints();
+    renderUserInput();
+}
+// create start/reset button  
 
+function resetButton() {
+    document.querySelector(".reset-button-container").innerText = '';
 
+    let resetButton = document.createElement("div")
+    resetButton.className = ".reset-button";
+    resetButton.innerText = "Reset Game";
+    resetButton.onclick = function() {
+        initGame(); 
+    }
+    document.querySelector(".reset-button-container").appendChild(resetButton);
 
+}
+
+function gameStatus() {
+   
+    let gameStatus = document.querySelector(".game-status");
+    if(winnerChecker()===true) {
+      gameStatus.innerHTML = "You win!"  
+    } else if(loserChecker()===true) {
+      gameStatus.innerHTML = "Game Over, try again!"  
+    }else {
+       gameStatus.innerHTML = ''; 
+    };
+
+}
+function startGame(){
+    
+} 
