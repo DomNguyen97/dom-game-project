@@ -9,8 +9,8 @@
 
 ##:camera_flash: Screenshot
 <img src="https://i.imgur.com/mnGEwVg.png">
-<img src="https://imgur.com/gallery/kpBe77H">
-<img src="https://imgur.com/gallery/ewk4FTV">
+<img src="https://imgur.com/kpBe77H.png">
+<img src="https://imgur.com/ewk4FTV.png">
 
 ##:pen: Coding languages used
 ![JavaScript](https://img.shields.io/badge/-JavaScript-05122A?style=flat&logo=javascript)
