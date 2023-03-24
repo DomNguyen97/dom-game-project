@@ -2,9 +2,8 @@
     display: grid;
     grid-template-columns: 1fr 1fr;
     grid-template-rows: 1fr;
-    width: 80%;
+    width: 100%;
     margin: auto;
-    background-color: black;
     font-family: 'Open Sans', sans-serif;
     font-family: 'Red Hat Display', sans-serif;
 }
@@ -19,21 +18,22 @@
     display : grid;
     grid-template-columns: repeat(10, 1fr);
     width: 100%;
-    height: 100px;
+    height: 60px;
     background-color: red;
-    text-align: center;
     grid-column: span 2;
+    font-size: 50px;
+    
 }
 .input{
     width: 100%;
-    height: 100px;
+    height: 60px;
     background-color: yellow; 
     text-align: center;
     grid-column: span 2;
 }
 .lifePoints { 
     width:100%;
-    height:60px;
+    height: 50px;
     background-color: orange;
 }
 
@@ -45,7 +45,7 @@
     display:grid;
     grid-template-columns: repeat(26, 1fr);
     width: 100%;
-    height: 60px;
+    height: 50px;
     background-color: green;
 }
 .input-input { 
@@ -57,9 +57,6 @@ text-align: center;
     width: 100%;
     height: 40px;
     background-color: cadetblue;
-    
-    
-
 }
 
 .key-board{
@@ -70,9 +67,10 @@ text-align: center;
     grid-column: span 2;
 }
 .reset-button-container {
- width: 100%;
- height: 50px;
- background-color: crimson;
+    width: 100%;
+    height: 50px;
+    background-color: crimson;
+    
 }
 
 .reset-button{
@@ -82,11 +80,17 @@ text-align: center;
 }
 
 .game-status {
-  width: 100%;
-  height: 50px;
-  background-color: coral;  
+    width: 100%;
+    height: 50px;
+    background-color: coral;  
 }
 
 #clue{
 background-color: antiquewhite;
+height: 20px;
+padding: 10px;  
+}
+
+#start {
+    grid-column: span 2;
 }

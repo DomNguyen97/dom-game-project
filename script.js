@@ -9,7 +9,7 @@ let lifePoints = 10;
 
 // const secret word bank(array) 
 const secretWordBank = ['RED','ORANGE','YELLOW','GREEN','BLUE','PURPLE'];
-const hints = ["___ Hot Chili Peppers","Chanel____","___ Submarine","Americam Idiot","Eiffel 65","That one Prince song about the rain"];
+const hints = ["___ Hot Chili Peppers","Channel____","___ Submarine","Americam Idiot","Effiel56","That one Prince song about"];
 // let secret word(array)
 let secretWord = [];
 let incompleteWord = [];
