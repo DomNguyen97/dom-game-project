@@ -12,7 +12,7 @@
 <img src="https://imgur.com/kpBe77H.png">
 <img src="https://imgur.com/ewk4FTV.png">
 
-##:pen: Coding languages used
+##:pen: Coding languages used and technology used
 ![JavaScript](https://img.shields.io/badge/-JavaScript-05122A?style=flat&logo=javascript)
 ![HTML5](https://img.shields.io/badge/-HTML5-05122A?style=flat&logo=html5)
 ![CSS3](https://img.shields.io/badge/-CSS-05122A?style=flat&logo=css3)
