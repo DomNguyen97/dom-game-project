@@ -1,7 +1,7 @@
 #Spaceman-app
 <div id="header" align="center">
 <h1>Spaceman</h1>
-<img src= https://images.pexels.com/photos/5258257/pexels-photo-5258257.jpeg> width="800" height="400">
+<img src="https://i.imgur.com/mmlwIT5.jpeg" width="800" height="400">
 </div>
 <h3><a href="https://seksiboidom.github.io/dom-game-project/">Play Spaceman!</h3>
 <h1>:speech_balloon:Description</h1>
